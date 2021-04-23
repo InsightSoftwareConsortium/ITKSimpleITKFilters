@@ -130,7 +130,7 @@ jobs:
         shell: cmd
 
   build-linux-python-packages:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     strategy:
       max-parallel: 2
       matrix:
@@ -257,7 +257,7 @@ jobs:
       - build-linux-python-packages
       - build-macos-python-packages
       - build-windows-python-packages
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
 
     steps:
       - name: Download Python Packages
