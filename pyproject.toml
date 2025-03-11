@@ -4,7 +4,7 @@ build-backend = "scikit_build_core.build"
 
 [project]
 name = "itk-simpleitkfilters"
-version = "1.1.0"
+version = "1.1.1"
 description = "This module contains a collension of ITK Filters used by SimpleITK. These filter are usefull to SimpleITK in that they may wrap existing ITK filters with an interface expected by SimpleITK, or may add important basic filters needed for completeness."
 readme = "README.rst"
 license = {file = "LICENSE"}
@@ -12,7 +12,7 @@ authors = [
     { name = "SimpleITK", email = "itk+community@discourse.itk.org" },
 ]
 keywords = [
-    "ITK",
+    "itk",
     "InsightToolkit",
 ]
 classifiers = [
@@ -34,9 +34,9 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Medical Science Apps.",
     "Topic :: Software Development :: Libraries",
 ]
-requires-python = ">=3.8"
+requires-python = ">=3.9"
 dependencies = [
-    "itk~=5.4.0",
+    "itk == 5.4.*",
 ]
 
 [project.urls]
