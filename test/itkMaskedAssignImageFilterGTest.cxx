@@ -136,8 +136,12 @@ TEST_F(MaskedAssignFixture, SetGetPrint)
   EXPECT_ANY_THROW(filter->GetConstant1());
 
   EXPECT_NO_THROW(filter->SetConstant1(1));
-  EXPECT_NO_THROW(filter->GetInput());
+  //EXPECT_NO_THROW(filter->GetInput()); Base methods do not support multiple types in an input
   EXPECT_EQ(1, filter->GetConstant1());
+
+  EXPECT_NO_THROW(filter->SetInput(image));
+  EXPECT_EQ(image, filter->GetInput());
+  EXPECT_ANY_THROW(filter->GetConstant1());
 
 
   image = Utils::CreateImage(100);
@@ -153,6 +157,10 @@ TEST_F(MaskedAssignFixture, SetGetPrint)
   EXPECT_NO_THROW(filter->SetConstant2(2));
   EXPECT_NO_THROW(filter->GetMaskImage());
   EXPECT_EQ(2, filter->GetConstant2());
+
+  EXPECT_NO_THROW(filter->SetMaskImage(image));
+  EXPECT_EQ(image, filter->GetMaskImage());
+  EXPECT_ANY_THROW(filter->GetConstant2());
 
 
   image = Utils::CreateImage(100);
@@ -171,12 +179,17 @@ TEST_F(MaskedAssignFixture, SetGetPrint)
   EXPECT_NO_THROW(filter->GetMaskImage());
   EXPECT_EQ(3, filter->GetConstant3());
 
+  EXPECT_NO_THROW(filter->SetAssignImage(image));
+  EXPECT_EQ(image, filter->GetAssignImage());
+  EXPECT_ANY_THROW(filter->GetConstant3());
+  EXPECT_ANY_THROW(filter->GetAssignConstant());
 
   EXPECT_NO_THROW(filter->SetAssignConstant(4));
   EXPECT_NO_THROW(filter->GetMaskImage());
   EXPECT_EQ(4, filter->GetConstant3());
   EXPECT_EQ(4, filter->GetAssignConstant());
 }
+  
 
 TEST_F(MaskedAssignFixture, Test1)
 {

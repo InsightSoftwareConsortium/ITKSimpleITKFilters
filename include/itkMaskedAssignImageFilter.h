@@ -84,11 +84,27 @@ public:
 
   using OutputPixelType = typename OutputImageType::PixelType;
 
-  itkSetInputMacro(MaskImage, MaskImageType);
-  itkGetInputMacro(MaskImage, MaskImageType);
+  virtual void
+  SetMaskImage(const MaskImageType * mask)
+  {
+    this->SetInput2(mask);
+  }
+  virtual const MaskImageType *
+  GetMaskImage() const
+  {
+    return dynamic_cast<const MaskImageType *>(this->ProcessObject::GetInput(1));
+  }
 
-  itkSetInputMacro(AssignImage, AssignImageType);
-  itkGetInputMacro(AssignImage, AssignImageType);
+  virtual void
+  SetAssignImage(const AssignImageType * assign)
+  {
+    this->SetInput3(assign);
+  }
+  virtual const AssignImageType *
+  GetAssignImage() const
+  {
+    return dynamic_cast<const AssignImageType *>(this->ProcessObject::GetInput(2));
+  }
 
   virtual void
   SetAssignConstant(const OutputPixelType & v)
