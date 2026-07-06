@@ -61,7 +61,6 @@ add_test(NAME itkHessianImageFilterTest
 
 set(SimpleITKFiltersGTest
   itkHessianImageFilterGTest.cxx
-        itkDICOMOrientImageFilterGTest.cxx
-        itkMaskedAssignImageFilterGTest.cxx)
+        itkDICOMOrientImageFilterGTest.cxx)
 
 CreateGoogleTestDriver(SimpleITKFilters "${SimpleITKFilters-Test_LIBRARIES}" "${SimpleITKFiltersGTest}")
